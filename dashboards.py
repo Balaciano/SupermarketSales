@@ -54,5 +54,5 @@ col4.plotly_chart(fig_Kind)
 
 
 city_rating = df_filtered.groupby("City")[["Rating"]].mean().reset_index()
-fig_rating = px.bar(df_filtered, x="City", y="Rating", title="Avaliação")
+fig_rating = px.bar(df_filtered, x="City", y="Rating", title="Avaliação", orientation="v")
 col5.plotly_chart(fig_rating)
