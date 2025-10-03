@@ -22,8 +22,13 @@ df["Month"] = df["Date"].apply(lambda x: str(x.year) + "-" + str(x.month))
 
 
 #Cria o filtro de selecionar pelo mes e ano
-month = st.sidebar.selectbox("Mês", df["Month"].unique())
-df_filtered = df[df["Month"] == month]
+months = ["Todos"] + list(df["Month"].unique())
+month = st.sidebar.selectbox("Mês", months)
+if month != "Todos":
+    df_filtered = df[df["Month"] == month]
+else:
+    #Sem filtro
+    df_filtered = df
 
 
 df
